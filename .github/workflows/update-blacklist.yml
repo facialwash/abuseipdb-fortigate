@@ -3,7 +3,6 @@ name: Update AbuseIPDB Blacklist
 
 on:
   schedule:
-    # Every day at 01:00 WIB (18:00 UTC)
     - cron: "0 18 * * *"
 
   workflow_dispatch:
@@ -13,11 +12,11 @@ permissions:
 
 jobs:
   update-blacklist:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Run Python Script
         run: python3 scripts/update_blacklist.py
